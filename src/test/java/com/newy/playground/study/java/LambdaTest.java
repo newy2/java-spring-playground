@@ -5,34 +5,11 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@FunctionalInterface
-interface FirstOutPort {
-    String getFirstData();
-}
-
-@FunctionalInterface
-interface SecondOutPort {
-    String getSecondData();
-}
-
-class SomethingService {
-    private final FirstOutPort firstOutPort;
-    private final SecondOutPort secondOutPort;
-
-    SomethingService(FirstOutPort firstOutPort, SecondOutPort secondOutPort) {
-        this.firstOutPort = firstOutPort;
-        this.secondOutPort = secondOutPort;
-    }
-
-    public String getData() {
-        return "Hello " + firstOutPort.getFirstData() + "(" + secondOutPort.getSecondData() + ")";
-    }
-}
-
 /***
  * [요약]
  * FunctionalInterface 를 사용하면, 유닛 테스트 작성 시 Service 의 OutPort 를 Lambda 로 시뮬레이션 할 수 있지만, Kotlin 만큼 편하지는 않다.
  * <p>
+ * [특징]
  * - Java 는 default 파리미터를 지원하지 않아서, Service 생성 헬퍼 메서드를 만들 때 불편하다.
  */
 public class LambdaTest {
@@ -74,4 +51,27 @@ public class LambdaTest {
         return () -> "Jay";
     }
 
+    @FunctionalInterface
+    interface FirstOutPort {
+        String getFirstData();
+    }
+
+    @FunctionalInterface
+    interface SecondOutPort {
+        String getSecondData();
+    }
+
+    static class SomethingService {
+        private final FirstOutPort firstOutPort;
+        private final SecondOutPort secondOutPort;
+
+        SomethingService(FirstOutPort firstOutPort, SecondOutPort secondOutPort) {
+            this.firstOutPort = firstOutPort;
+            this.secondOutPort = secondOutPort;
+        }
+
+        public String getData() {
+            return "Hello " + firstOutPort.getFirstData() + "(" + secondOutPort.getSecondData() + ")";
+        }
+    }
 }
