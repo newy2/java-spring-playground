@@ -70,7 +70,7 @@ public class OptionalBehaviorTest {
         public void or_메소드는_null이_아닌_Optinal을_반환한다() {
             assertEquals(Optional.of("a"), Optional.empty().or(() -> Optional.of("a")));
             assertEquals(Optional.of("a"), Optional.of("a").or(() -> Optional.empty()));
-            assertEquals("a", Optional.of("a").or(Optional::empty).get(), "마지막에 get 메서드를 호출하면, Optional 이 아닌 값을 반환한다");
+            assertEquals("a", Optional.of("a").or(() -> Optional.empty()).get(), "마지막에 get 메서드를 호출하면, Optional 이 아닌 값을 반환한다");
         }
 
         @Test
@@ -82,13 +82,13 @@ public class OptionalBehaviorTest {
         }
 
         @Test
-        public void map_메소드는_파라미터로_전달한_lamgda_반환값이_값인_경우에_사용한다() {
+        public void map_메소드는_lambda의_반환값이_값인_경우에_사용한다() {
             assertEquals(Optional.of("ab"), Optional.of("a").map(value -> value + "b"));
             assertEquals(Optional.empty(), Optional.empty().map(value -> value + "b"));
         }
 
         @Test
-        public void flatMap_메소드는_파라미터로_전달한_lamgda_반환값이_Optional인_경우에_사용한다() {
+        public void flatMap_메소드는_lambda의_반환값이_Optional인_경우에_사용한다() {
             assertEquals(Optional.of("ab"), Optional.of("a").flatMap(value -> Optional.of(value + "b")));
             assertEquals(Optional.empty(), Optional.empty().flatMap(value -> Optional.of(value + "b")));
         }
