@@ -33,7 +33,7 @@ public class OptionalBehaviorTest {
     class OptionalGetValueTest {
         @Test
         public void get_메서드는_값을_반환한다() {
-            assertThrows(NoSuchElementException.class, () -> Optional.empty().get());
+            assertThrows(NoSuchElementException.class, () -> Optional.empty().get(), "값이 없으면 에러 발생");
             assertThrows(NoSuchElementException.class, () -> Optional.ofNullable(null).get(), "값이 없으면 에러 발생");
             assertEquals("", Optional.ofNullable("").get());
             assertEquals("", Optional.of("").get());
