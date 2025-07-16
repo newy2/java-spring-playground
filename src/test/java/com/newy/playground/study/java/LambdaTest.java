@@ -58,12 +58,12 @@ public class LambdaTest {
         assertEquals("Hello World(Yoon)", service.getData());
     }
 
-    private SomethingService newServiceWithSecondOutPort(SecondOutPort secondOutPort) {
-        return new SomethingService(getDefaultFirstOutPort(), secondOutPort);
-    }
-
     private SomethingService newServiceWithFirstOutPort(FirstOutPort firstOutPort) {
         return new SomethingService(firstOutPort, getDefaultSecondOutPort());
+    }
+
+    private SomethingService newServiceWithSecondOutPort(SecondOutPort secondOutPort) {
+        return new SomethingService(getDefaultFirstOutPort(), secondOutPort);
     }
 
     private FirstOutPort getDefaultFirstOutPort() {
