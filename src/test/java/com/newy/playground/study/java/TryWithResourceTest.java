@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /***
+ * [요약]
  * try-with-resource 블록은 파일 같은 외부 리소스를 자동으로 해제해 준다.
  */
 public class TryWithResourceTest {
