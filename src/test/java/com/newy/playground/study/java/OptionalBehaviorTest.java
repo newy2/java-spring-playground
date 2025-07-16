@@ -15,12 +15,12 @@ import static org.junit.jupiter.api.Assertions.*;
  * 도메인 로직을 구현할 때는 크게 유용해보이지 않는다.
  * <p>
  * [특징]
- * - 값을 반환하는 메서드(예: get, orElse)와, 새로운 Optional 을 반환하는 메서드(예: or, filter, map 등)가 있다.
- * - Optional.empty() 같은 값이 없는 Optional 객체도, 새로운 Optional 을 반환하는 메서드를 사용할 수 있다.
+ * - 값을 반환하는 메서드(예: get, orElse)와 Optional 을 반환하는 메서드(예: or, filter, map 등)가 있다.
+ * - 값이 없는 Optional 객체도 Optional 을 반환하는 메서드를 사용할 수 있다.
  */
 public class OptionalBehaviorTest {
     @Test
-    public void optional객체_생성를_생성하는_방법() {
+    public void optional_객체를_생성하는_방법() {
         assertFalse(Optional.empty().isPresent());
         assertFalse(Optional.ofNullable(null).isPresent());
         assertTrue(Optional.ofNullable("").isPresent());
