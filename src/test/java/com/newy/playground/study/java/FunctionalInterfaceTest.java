@@ -7,32 +7,32 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /***
  * [요약]
- * FunctionalInterface 를 사용하면, 유닛 테스트 작성 시 Service 의 OutPort 를 Lambda 로 시뮬레이션 할 수 있지만, Kotlin 만큼 편하지는 않다.
+ * FunctionalInterface 를 사용하면, 유닛 테스트 작성 시 Lambda 로 외부 의존성을 시뮬레이션 할 수 있지만, Kotlin 만큼 편하지는 않다.
  * <p>
  * [특징]
  * - Java 는 default 파리미터를 지원하지 않아서, Service 생성 헬퍼 메서드를 만들 때 불편하다.
  */
-public class LambdaTest {
+public class FunctionalInterfaceTest {
     @Test
-    public void somethingService() {
+    public void service의_기본_동작을_확인한다() {
         var service = new SomethingService(() -> "World", () -> "Jay");
         assertEquals("Hello World(Jay)", service.getData());
     }
 
     @Test
-    public void 에러가_발생하는_상황을_시뮬레이션_한다() {
+    public void second_out_port를_오버리아드해서_테스트용_데이터를_생성한다() {
+        var service = newServiceWithSecondOutPort(() -> "Yoon");
+        assertEquals("Hello World(Yoon)", service.getData());
+    }
+
+    @Test
+    public void first_out_port에서_에러가_발생하는_상황을_시뮬레이션_한다() {
         var service = newServiceWithFirstOutPort(() -> {
             throw new RuntimeException("에러 발생!");
         });
 
         var exception = assertThrows(RuntimeException.class, service::getData);
         assertEquals("에러 발생!", exception.getMessage());
-    }
-
-    @Test
-    public void 두_번째_OutPort를_오버리아드해서_테스트용_데이터를_생성한다() {
-        var service = newServiceWithSecondOutPort(() -> "Yoon");
-        assertEquals("Hello World(Yoon)", service.getData());
     }
 
     private SomethingService newServiceWithFirstOutPort(FirstOutPort firstOutPort) {
