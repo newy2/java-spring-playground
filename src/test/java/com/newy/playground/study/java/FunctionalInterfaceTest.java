@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  */
 public class FunctionalInterfaceTest {
     @Test
-    public void service의_기본_동작을_확인한다() {
+    public void service의_기본_동작은_아래와_같다() {
         var service = new SomethingService(() -> "World", () -> "Jay");
         assertEquals("Hello World(Jay)", service.getData());
     }
@@ -31,7 +31,7 @@ public class FunctionalInterfaceTest {
             throw new RuntimeException("에러 발생!");
         });
 
-        var exception = assertThrows(RuntimeException.class, service::getData);
+        var exception = assertThrows(RuntimeException.class, () -> service.getData());
         assertEquals("에러 발생!", exception.getMessage());
     }
 
