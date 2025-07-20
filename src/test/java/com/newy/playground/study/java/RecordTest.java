@@ -26,7 +26,7 @@ public class RecordTest {
         assertEquals(new Person("Jay", 10).hashCode(), person.hashCode());
         assertEquals("Person[name=Jay, age=10]", person.toString());
         assertEquals("Jay", person.name(), "getter 메서드도 자동으로 만들어 준다.");
-        assertEquals(10, person.age(), "getter 메서드도 자동으로 만들어 준다.");
+        assertEquals(10, person.age());
     }
 
     @Test

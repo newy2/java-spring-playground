@@ -40,21 +40,25 @@ public class OptionalBehaviorTest {
         }
 
         @Test
-        public void orElseXxx_메서드는_null인_경우_기본_값을_반환한다() {
+        public void orElseXxx_메서드는_값이_null인_경우_기본_값을_반환한다() {
             assertEquals("a", Optional.of("a").orElse("b"));
             assertEquals("b", Optional.empty().orElse("b"));
-            assertEquals("b", Optional.empty().orElseGet(() -> "b"), "orElseGet 은 기본 값을 생성하는 lambda 를 사용한다");
+            assertEquals(1, Optional.empty().orElseGet(() -> Integer.valueOf(1)), "객체를 생성해서 기본 값을 제공하는 경우, orElseGet 을 사용해서 지연 실행 시킨다.");
             assertThrows(RuntimeException.class, () -> Optional.empty().orElseThrow(RuntimeException::new));
         }
 
         @Test
-        public void ifPresentXxx_메서드는_null인_경우_기본_값을_lambda로_값을_반환한다() {
-            Optional.of("a").ifPresent(value -> assertEquals("a", value));
+        public void ifPresentXxx_메서드는_값의_유무에_따라_lambda를_실행한다() {
+            Optional.of("a").ifPresent(value -> {
+                assertEquals("a", value);
+            });
+
             Optional.of("a").ifPresentOrElse(value -> {
                 assertEquals("a", value);
             }, () -> {
                 throw new RuntimeException("Error");
             });
+
             Optional.empty().ifPresentOrElse(value -> {
                 throw new RuntimeException("Error");
             }, () -> {
@@ -67,10 +71,10 @@ public class OptionalBehaviorTest {
     @DisplayName("Optional 에서 Optional 을 반환하는 메서드 테스트")
     class OptionalOperatorTest {
         @Test
-        public void or_메소드는_null이_아닌_Optinal을_반환한다() {
-            assertEquals(Optional.of("a"), Optional.empty().or(() -> Optional.of("a")));
-            assertEquals(Optional.of("a"), Optional.of("a").or(() -> Optional.empty()));
-            assertEquals("a", Optional.of("a").or(() -> Optional.empty()).get(), "마지막에 get 메서드를 호출하면, Optional 이 아닌 값을 반환한다");
+        public void or_메소드는_값이_null이_아닌_Optinal을_반환한다() {
+            assertEquals(Optional.of("a"), Optional.of("a").or(() -> Optional.of("b")));
+            assertEquals(Optional.of("b"), Optional.empty().or(() -> Optional.of("b")));
+            assertEquals("a", Optional.of("a").or(() -> Optional.of("b")).get(), "마지막에 get 메서드를 호출하면, Optional 이 아닌 값을 반환한다");
         }
 
         @Test
