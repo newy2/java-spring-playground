@@ -1,4 +1,4 @@
-package com.newy.playground.study.java.function;
+package com.newy.playground.study.java.functional_programing;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

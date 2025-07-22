@@ -1,4 +1,4 @@
-package com.newy.playground.study.java;
+package com.newy.playground.study.java.functional_programing;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class OptionalBehaviorTest {
     @Test
-    public void optional_객체를_생성하는_방법() {
+    public void optional_객체를_생성하고_값_유무를_확인한다() {
         assertFalse(Optional.empty().isPresent());
         assertFalse(Optional.ofNullable(null).isPresent());
         assertTrue(Optional.ofNullable("").isPresent());
