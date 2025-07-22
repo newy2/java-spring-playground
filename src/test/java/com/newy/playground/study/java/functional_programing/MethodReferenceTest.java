@@ -12,6 +12,14 @@ import java.util.function.ToIntFunction;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * [요약]
+ * 메서드 시그니처가 동일하다면, 다른 타입의 함수형 인터페이스 변수에 메서드 참조를 할당할 수 있다.
+ * (예: ToIntBiFunction<String, String> a = String::compareTo; // Function 에 메서드 참조 할당)
+ * (예: Comparator<String> b = String::compareTo; // Comparator 에 메서드 참조 할당)
+ * <p>
+ * 이 규칙 덕분에 기존 Java API를 유지하면서도 함수형 프로그래밍을 사용할 수 있다.
+ */
 public class MethodReferenceTest {
     @Test
     public void 클래스의_정적_메서드_참조하기() {
@@ -55,8 +63,10 @@ public class MethodReferenceTest {
         }
 
         @Test
-        public void 번외__String의_compareTo_메서드는_함수형_인터페이스인_Comparator_타입의_변수에_할당할_수도_있다() {
+        public void 메서드_시그니처가_동일하다면_다른_타입의_함수형_인터페이스예_메서드_참조를_할당할_수_있다() {
+            ToIntBiFunction<String, String> unboundInstanceMethod = String::compareTo;
             Comparator<String> functionalInterface = String::compareTo;
+            assertEquals(unboundInstanceMethod.applyAsInt(instance, parameterA), functionalInterface.compare(instance, parameterA));
 
             String[] array = {"2", "1"};
             Arrays.sort(array, functionalInterface);
