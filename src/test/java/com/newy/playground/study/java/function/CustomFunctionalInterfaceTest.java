@@ -1,4 +1,4 @@
-package com.newy.playground.study.java;
+package com.newy.playground.study.java.function;
 
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  * [특징]
  * - Java 는 default 파리미터를 지원하지 않아서, Service 생성 헬퍼 메서드를 만들 때 불편하다.
  */
-public class FunctionalInterfaceTest {
+public class CustomFunctionalInterfaceTest {
     @Test
     public void service의_기본_동작은_아래와_같다() {
         var service = new SomethingService(() -> "World", () -> "Jay");
