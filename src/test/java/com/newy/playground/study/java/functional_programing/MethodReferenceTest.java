@@ -14,11 +14,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * [요약]
- * 메서드 시그니처가 동일하다면, 다른 타입의 함수형 인터페이스 변수에 메서드 참조를 할당할 수 있다.
- * (예: ToIntBiFunction<String, String> a = String::compareTo; // Function 에 메서드 참조 할당)
- * (예: Comparator<String> b = String::compareTo; // Comparator 에 메서드 참조 할당)
- * <p>
- * 이 규칙 덕분에 기존 Java API를 유지하면서도 함수형 프로그래밍을 사용할 수 있다.
+ * 메서드 시그니처가 동일하다면, 다른 타입의 함수형 인터페이스 변수에 메서드 참조를 할당할 수 있다(예: String::compareTo 를 Function 이나 Comparator 에 할당할 수 있다)
+ * 위 규칙 덕분에 기존 Java API를 유지하면서 함수형 프로그래밍을 편하게 사용할 수 있다.
  */
 public class MethodReferenceTest {
     @Test
