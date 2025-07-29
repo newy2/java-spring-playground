@@ -15,7 +15,7 @@ https://github.com/newy2/java-spring-playground/blob/92eca1ccdf943940af903897b61
 
 ### 메서드 참조 (Method Reference) (Java 8+)
 > 메서드 참조의 파라미터와 리턴 타입이 동일하다면, 다른 타입의 FunctionalInterface 에 할당할 수 있다.  
-> 위의 규칙으로 기존 API(예: Collection)에 메서드 참조와 람다 표현식을 사용할 수 있다.
+> 위의 규칙으로 기존 API(예: Collection)에서 메서드 참조와 람다 표현식을 사용할 수 있다.
 
 https://github.com/newy2/java-spring-playground/blob/92eca1ccdf943940af903897b6185a62d7be7720/src/test/java/com/newy/playground/study/java/functional_programing/MethodReferenceTest.java#L63-L73
 
