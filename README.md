@@ -25,6 +25,6 @@ https://github.com/newy2/java-spring-playground/blob/92eca1ccdf943940af903897b61
 https://github.com/newy2/java-spring-playground/blob/92eca1ccdf943940af903897b6185a62d7be7720/src/test/java/com/newy/playground/study/java/functional_programing/CustomFunctionalInterfaceTest.java#L28-L40
 
 ### Record (Java 14+)
-> Kotlin 만큼 편하지 않지만, Record 와 Bean Validation 을 조합하면 DTO로 사용하기 좋을 거 같다.
+> Kotlin 만큼 편하지 않지만, Record 와 Bean Validation 을 조합하면 Input Model 로 사용하기 좋을 거 같다.
 
 https://github.com/newy2/java-spring-playground/blob/92eca1ccdf943940af903897b6185a62d7be7720/src/test/java/com/newy/playground/study/java/RecordTest.java#L50-L66
