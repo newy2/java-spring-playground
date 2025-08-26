@@ -31,7 +31,7 @@ https://github.com/newy2/java-spring-playground/blob/92eca1ccdf943940af903897b61
 ## 흥미롭지 않은 기술
 
 ### Optional (Java 8+)
-> 프레임워크(라이브러리 포함) 개발자를 위한 문법 같다. 애플리케이션 개발에서는 사용하지 않는 편이 좋아 보인다. 프레임워크의 리턴 타입으로 사용되기 때문에 사용법을 위해 학습한다.
+> 프레임워크(라이브러리 포함) 개발자를 위한 문법 같다. 애플리케이션 개발에서는 사용하지 않는 편이 좋아 보인다. 몇몇 프레임워크의 리턴 타입으로 사용되기 때문에 사용법을 위해 학습한다.
 
 https://github.com/newy2/java-spring-playground/blob/e0888adfd2e378d98761883c1b6ffe87f6274db8/src/test/java/com/newy/playground/study/java/functional_programing/OptionalBehaviorTest.java#L34-L40
 
