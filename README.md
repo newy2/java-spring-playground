@@ -6,7 +6,7 @@ Java SE 6 이후에 나온 기능과 Spring Boot MVC 를 학습하기 위한 프
 
 학습 테스트로 Java 와 Spring Boot MVC 의 기능을 학습한다.
 
-## 흥미로웠던 기술
+## 흥미로운 기술
 
 ### try-with-resources (Java 7+)
 > try 블록이 끝나면, 파일 같은 외부 리소스를 자동으로 해제해서 사용성이 증가한다.
@@ -27,3 +27,10 @@ https://github.com/newy2/java-spring-playground/blob/92eca1ccdf943940af903897b61
 > Kotlin 만큼 편하지 않지만, Record 와 Bean Validation 을 조합하면 Input Model 로 사용하기 좋을 거 같다.
 
 https://github.com/newy2/java-spring-playground/blob/92eca1ccdf943940af903897b6185a62d7be7720/src/test/java/com/newy/playground/study/java/RecordTest.java#L50-L66
+
+## 흥미롭지 않은 기술
+
+### Optional (Java 8+)
+> 프레임워크(라이브러리 포함) 개발자를 위한 문법 같다. 애플리케이션 개발에서는 사용하지 않는 편이 좋아 보인다. 몇몇 프레임워크의 리턴 타입으로 사용되기 때문에 사용법을 위해 학습한다.
+
+https://github.com/newy2/java-spring-playground/blob/e0888adfd2e378d98761883c1b6ffe87f6274db8/src/test/java/com/newy/playground/study/java/functional_programing/OptionalBehaviorTest.java#L34-L40
