@@ -34,3 +34,8 @@ https://github.com/newy2/java-spring-playground/blob/92eca1ccdf943940af903897b61
 > 프레임워크(라이브러리 포함) 개발자를 위한 문법 같다. 애플리케이션 개발에서는 사용하지 않는 편이 좋아 보인다. 몇몇 프레임워크의 리턴 타입으로 사용되기 때문에 사용법을 위해 학습한다.
 
 https://github.com/newy2/java-spring-playground/blob/e0888adfd2e378d98761883c1b6ffe87f6274db8/src/test/java/com/newy/playground/study/java/functional_programing/OptionalBehaviorTest.java#L34-L40
+
+### Sealed Class (Java 17+)
+> 프레임워크 개발자를 위한 문법 같다. 애플리케이션 개발에서는 사용하지 않는 편이 좋아 보인다. 부모 클래스와 자식 클래스간의 결합도가 생겨서, 자식 클래스 추가 시 부모 클래스의 선언부를 같이 변경해야 한다.
+
+https://github.com/newy2/java-spring-playground/blob/21328b13017bf6de029de50d662dc920917f8b6f/src/test/java/com/newy/playground/study/java/SealedClassTest.java#L37-L52
